@@ -21,6 +21,6 @@ type RunFunction = (options: RunOptions) => any;
 
 export type CommandType = {
     categories: string;
-    userPermissions?: PermissionResolvable[];
+    default_member_permissions?: string;
     run: RunFunction;
 } & ChatInputApplicationCommandData;

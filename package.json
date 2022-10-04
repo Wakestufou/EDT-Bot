@@ -1,6 +1,6 @@
 {
   "name": "edt-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bot discord to display the schedule",
   "main": "dist/index.js",
   "scripts": {
@@ -24,7 +24,10 @@
   "dependencies": {
     "discord.js": "^14.5.0",
     "dotenv": "^16.0.3",
-    "glob": "^8.0.3"
+    "glob": "^8.0.3",
+    "node-cache": "^5.1.2",
+    "node-cron": "^3.0.2",
+    "node-ical": "^0.15.1"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
