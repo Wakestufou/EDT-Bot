@@ -6,6 +6,7 @@ declare global {
             APP_ID: string;
             APP_ID_DEV: string;
             GUILD_DEV: string;
+            URL_ICS: string;
         }
     }
 }
