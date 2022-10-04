@@ -15,8 +15,8 @@ Bot discord to display the schedule.
 
 # ⚙️ Getting Started
 ## Prerequisites
-- [NodeJS](https://nodejs.org/en/) : v16.13.2
-- [npm](https://www.npmjs.com) : v8.5.2
+- [NodeJS](https://nodejs.org/en/) : >= v16.13.2
+- [npm](https://www.npmjs.com) : >= v8.5.2
 
 ## Installation
 ### With Release
