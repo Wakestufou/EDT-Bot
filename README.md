@@ -28,6 +28,7 @@ $ cd EDT-Bot
 
 # Configure .env
 $ cp .env.exemple .env
+$ vim .env
 
 # Install
 $ npm i
@@ -45,6 +46,7 @@ $ cd EDT-Bot
 
 # Configure .env
 $ cp .env.exemple .env
+$ vim .env
 
 # Install
 $ npm i
