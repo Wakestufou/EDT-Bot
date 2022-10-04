@@ -4,7 +4,11 @@
   "description": "Bot discord to display the schedule",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "watch": "tsc -w",
+    "start": "ts-node src/index.ts",
+    "start:dev": "ts-node-dev src/index.ts --DEV",
+    "start:prod": "node dist/index.js"
   },
   "repository": {
     "type": "git",
