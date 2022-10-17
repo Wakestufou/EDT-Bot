@@ -3,6 +3,7 @@ import path from 'path';
 import { Command } from '../../structures/Command';
 import myCache from '../../utils/Cache';
 import { AdeOption } from '../../types/ade';
+import Logger from '../../utils/Logger';
 
 export default new Command({
     name: 'edt',
@@ -37,27 +38,57 @@ export default new Command({
                 },
             ],
         },
+        {
+            name: 'date',
+            description: 'Date (JJ/MM/YYYY)',
+            type: 3,
+        },
     ],
     run: async ({ interaction, args }) => {
         const group = args.getString('group');
+        const dateString = args.getString('date');
+        let date;
+
+        if (dateString !== null) {
+            if (dateString.split('/').length !== 3) {
+                return interaction
+                    .reply({
+                        content: 'Date Format : JJ/MM/YYYY',
+                        ephemeral: true,
+                    })
+                    .catch((e) => Logger.error('Error : ', e));
+            }
+
+            date = new Date(
+                Number(dateString.split('/')[2]),
+                Number(dateString.split('/')[1]) - 1,
+                Number(dateString.split('/')[0])
+            );
+        } else {
+            date = new Date();
+        }
+
         if (typeof group === 'string') {
             await interaction.deferReply();
 
-            const dateNow = new Date();
+            const dateFinal = date;
+            console.log(dateFinal);
             const data = myCache.getCacheAde() as AdeOption[];
 
             const embed = new EmbedBuilder()
                 .setTitle(
                     `Cours TP ${args.getString(
                         'group'
-                    )} - ${dateNow.getDate()}/${dateNow.getMonth()}`
+                    )} - ${dateFinal.getDate()}/${
+                        dateFinal.getMonth() + 1
+                    }/${dateFinal.getFullYear()}`
                 )
                 .setColor('#5865F2');
 
             for (const k in data) {
                 if (
-                    data[k].start.getMonth() === dateNow.getMonth() &&
-                    data[k].start.getDate() === dateNow.getDate()
+                    data[k].start.getMonth() === dateFinal.getMonth() &&
+                    data[k].start.getDate() === dateFinal.getDate()
                 ) {
                     const description = data[k].description.split('\n');
                     description.slice(1);
