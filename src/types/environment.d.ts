@@ -7,6 +7,8 @@ declare global {
             APP_ID_DEV: string;
             GUILD_DEV: string;
             URL_ICS: string;
+            CHANNEL_ID_DEV: string;
+            CHANNEL_ID: string;
         }
     }
 }
