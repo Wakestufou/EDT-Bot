@@ -40,9 +40,11 @@ export default (date: Date, group: string): EmbedBuilder => {
                     name: `**•\t${data[k].start.toLocaleTimeString('fr-FR', {
                         hour: '2-digit',
                         minute: '2-digit',
+                        timeZone: 'Europe/Paris',
                     })}\t->\t${data[k].end.toLocaleTimeString('fr-FR', {
                         hour: '2-digit',
                         minute: '2-digit',
+                        timeZone: 'Europe/Paris',
                     })}**`,
                     value: `>>> **${data[k].summary}**\n${
                         data[k].location.split('(')[0]
