@@ -15,11 +15,14 @@ export default new Event('ready', (client) => {
         const embedTp2 = getEdt(date, '2');
 
         if (process.env.CHANNEL_ID !== undefined) {
-            const channel = client.channels.cache.get(process.env.CHANNEL_ID);
-            console.log('oui\n');
+            let channel;
+            if (process.argv.includes('--DEV')) {
+                channel = client.channels.cache.get(process.env.CHANNEL_ID_DEV);
+            } else {
+                channel = client.channels.cache.get(process.env.CHANNEL_ID);
+            }
 
             if (channel instanceof TextChannel) {
-                console.log('ouiiiiiiii\n');
                 channel
                     .send({
                         embeds: [embedTp1, embedTp2],
