@@ -14,7 +14,10 @@ export default new Event('ready', (client) => {
         const embedTp1 = getEdt(date, '1');
         const embedTp2 = getEdt(date, '2');
 
-        if (process.env.CHANNEL_ID !== undefined) {
+        if (
+            process.env.CHANNEL_ID !== undefined &&
+            process.env.CHANNEL_ID_DEV !== undefined
+        ) {
             let channel;
             if (process.argv.includes('--DEV')) {
                 channel = client.channels.cache.get(process.env.CHANNEL_ID_DEV);
