@@ -1,6 +1,6 @@
 {
   "name": "edt-bot",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Bot discord to display the schedule",
   "main": "dist/index.js",
   "scripts": {

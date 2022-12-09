@@ -42,7 +42,11 @@ export default new Event('ready', (client) => {
                 send(embedTp1, client);
         });
         getEdt(date, '2').then((embedTp2) => {
-            send(embedTp2, client);
+            if (
+                embedTp2.data.fields !== undefined &&
+                embedTp2.data.fields.length > 0
+            )
+                send(embedTp2, client);
         });
     });
 });
