@@ -31,7 +31,7 @@ const send = (embed: EmbedBuilder, client: Client) => {
 export default new Event('ready', (client) => {
     Logger.info('Bot is online ! ' + client.user?.tag, 'READY', Color.FgGreen);
 
-    cron.schedule('59 22 * * *', () => {
+    cron.schedule('0 8 * * *', () => {
         const date = new Date();
 
         getEdt(date, '1').then((embedTp1) => {
