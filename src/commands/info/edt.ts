@@ -67,9 +67,9 @@ export default new Command({
         if (typeof group === 'string') {
             await interaction.deferReply();
 
-            const embed = getEdt(date, group);
-
-            await interaction.followUp({ embeds: [embed] });
+            getEdt(date, group).then(async (embed) => {
+                await interaction.followUp({ embeds: [embed] });
+            });
         } else {
             await interaction.reply({
                 content: 'Please choose your group',
