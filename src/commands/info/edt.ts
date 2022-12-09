@@ -43,7 +43,7 @@ export default new Command({
     run: async ({ interaction, args }) => {
         const group = args.getString('group');
         const dateString = args.getString('date');
-        let date;
+        let date: Date;
 
         if (dateString !== null) {
             if (dateString.split('/').length !== 3) {
@@ -68,7 +68,17 @@ export default new Command({
             await interaction.deferReply();
 
             getEdt(date, group).then(async (embed) => {
-                await interaction.followUp({ embeds: [embed] });
+                if (
+                    embed.data.fields !== undefined &&
+                    embed.data.fields.length > 0
+                )
+                    await interaction.followUp({ embeds: [embed] });
+                else
+                    await interaction.followUp({
+                        content: `TP${group} : No classes on ${date.getDate()}/${
+                            date.getMonth() + 1
+                        }/${date.getFullYear()}`,
+                    });
             });
         } else {
             await interaction.reply({
