@@ -38,7 +38,7 @@ export default async (date: Date, group: string): Promise<EmbedBuilder> => {
 
                     if (
                         data[k].description.includes(`TP${group}`) ||
-                        data[k].description.includes(`BUT S3`) ||
+                        data[k].description.includes(`BUT S4`) ||
                         data[k].description.includes(td)
                     ) {
                         embed.addFields({
